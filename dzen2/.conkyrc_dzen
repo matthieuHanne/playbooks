@@ -1,0 +1,27 @@
+##############################################
+#  Settings
+##############################################
+background no
+out_to_console yes
+out_to_x no
+update_interval 1.0
+total_run_times 0
+uppercase no
+short_units yes
+use_spacer none
+if_up_strictness address
+##############################################
+#  Output
+##############################################
+TEXT
+ ^i(/home/m2thn/.config/dzen2/dzicons/cal.xbm) ^fg(\#ccc)${utime %d/%m}^fg() ^i(/home/m2thn/.config/dzen2/dzicons/clock.xbm) ${utime %H:%M}\
+  ^fg(\#ff4500)^i(/home/m2thn/.config/dzen2/dzicons/cpu.xbm) ^fg(\#ccc)${cpu}%\
+ ^fg(\#87ceeb)^i(/home/m2thn/.config/dzen2/dzicons/monitor.xbm) ^fg(\#ccc)${loadavg}\
+  ^fg(\#00bfff)^i(/home/m2thn/.config/dzen2/dzicons/mem.xbm) ^fg(\#ccc)$memperc% > $mem\
+  ^fg(\#ffd700)^i(/home/m2thn/.config/dzen2/dzicons/home.xbm) ^fg(\#ccc)${fs_used_perc /}%\
+ ^fg()${if_match ${battery_percent BAT1} >=26}^fg(\#7cfc00)^i(/home/m2thn/.config/dzen2/dzicons/bat_full_01.xbm)${endif}\
+${if_match ${battery_percent BAT1} <=25}  ^fg(\#CC0000)^i(/home/m2thn/.config/dzen2/dzicons/bat_low_01.xbm)^fg()${endif} ^fg(\#ccc)${battery_percent BAT1}%\
+ ^fg()${if_up eth0}  ^i(/home/m2thn/.config/dzen2/dzicons/net_wired.xbm)\
+ ^fg(\#00cd00)^i(/home/m2thn/.config/dzen2/dzicons/net_up_02.xbm) ^fg(\#ccc)${upspeedf eth0}\
+ ^fg(\#ffa500)^i(/home/m2thn/.config/dzen2/dzicons/net_down_02.xbm) ^fg(\#ccc)${downspeedf eth0}\
+^fg() ${endif}\
