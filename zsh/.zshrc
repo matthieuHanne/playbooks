@@ -8,10 +8,12 @@ ZSH_THEME="ys"
 
 alias zshconfig="vim ~/.zshrc"
 alias vimconfig="vim ~/.vimrc"
+alias nginxconfig="sudo vim ~/.config/nginx/nginx.conf"
 alias sshconfig="sudo vim /etc/ssh/ssh_config"
 alias sshdconfig="sudo vim /etc/ssh/sshd_config"
 alias xresconfig="vim ~/.Xresources"
 alias xresconfig="vim ~/.Xresources"
+alias echiconfig="vim ~/.echinus/echinusrc"
 
 DISABLE_CORRECTION="true"
 COMPLETION_WAITING_DOTS="true"

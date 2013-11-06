@@ -1,0 +1,176 @@
+! ----------------------
+! file: ~/.echinus/echinusrc
+! fichier de configuration de echinuswm
+! vim:fenc=utf-8:nu:ai:si:et:ts=4:sw=4:ft=xdefaults:
+! --------------------------------------------------
+
+! couleur de la bordure de la fenêtre ayant le focus
+Echinus*selected.border: #262626
+! couleur des boutons de la fenêtre ayant le focus
+Echinus*selected.button: #d3d7cf
+! couleur de la barre de titre de la fenêtre ayant le focus
+Echinus*selected.bg: #262626
+! couleur du texte de la barre de titre de la fenêtre ayant le focus
+Echinus*selected.fg: #d3d7cf
+
+! couleur de la bordure
+Echinus*normal.border: #262626
+! couleur des boutons
+Echinus*normal.button: #262626
+! couleur de la barre de titre
+Echinus*normal.bg: #262626
+! couleur du texte de la barre de titre
+Echinus*normal.fg: #b0b4ac
+
+! taille de la bordure en px
+Echinus*border: 1
+
+! chemin des boutons - à placer dans votre ~/.echinus/
+Echinus*button.iconify.pixmap: iconify.xbm
+Echinus*button.maximize.pixmap: max.xbm
+Echinus*button.close.pixmap: close.xbm
+
+! comportement du pointeur:
+! options: 0:click to focus, 1:focus-follow pour les clients floating, 2:focus-follow, 3:focus-follow-raise
+	Echinus*sloppy: 0
+! opacité des fenêtres. la fenêtre ayant le focus est opaque (1)
+	! vous aurez besoin d'un gestionnaire de composite tel que xcompmgr
+	Echinus*opacity: 0.8
+! barre de titre sur les fenêtres libres (0/1)
+	Echinus*decoratetiled: 0
+! chevaucher les batards... panels, widgets, docks (0/1)
+	Echinus*hidebastards: 0
+	! place occupée par le master en mode tiling (0.5=moitié de l'écran)
+	Echinus*mwfact: 0.6
+	! nombre de clients dans la zone master
+	Echinus*nmaster: 1
+
+	! hauteur de la barre de titre en px
+	Echinus*title: 12
+	! police par défaut
+	Echinus*font: fixed-9
+	! touche de modification: A:Alt, W:Super, S:Shift, C:Control
+	Echinus*modkey: A
+
+	! layout par défaut:
+	! options: i:ifloating, f:floating, t:tiled, b:bottomstack, m:maximized
+	! ifloating vs floating: f=place le client au coin supérieur gauche de l'écran i= placement intelligent
+	Echinus*deflayout: t
+
+! nombre total de tags (bureaux virtuels)
+	Echinus*tags.number: 7
+	! nom des tags
+	Echinus*tags.name0: main
+	Echinus*tags.name1: web
+	Echinus*tags.name2: doc
+	Echinus*tags.name3: dev
+	Echinus*tags.name4: scr
+	Echinus*tags.name5: gfx
+	Echinus*tags.name6: misc
+
+	! layout par défaut des tags
+	Echinus*tags.layout1: m
+	Echinus*tags.layout3: b
+
+	! masquer/afficher les panels, pager, widgets
+	Echinus*togglestruts: A + b
+	! passer d'un écran à l'autre
+	Echinus*togglemonitor: A + grave
+	! donner le focus au client précédent/suivant
+	Echinus*focusnext: A + j
+	Echinus*focusprev: A + k
+	! voir le tag précédent
+	Echinus*viewprevtag: A + Tab
+	! voir le tag de gauche/droite 
+	Echinus*viewlefttag: C + Left
+	Echinus*viewrighttag: C + Right
+	! quitter echinus
+	Echinus*quit: CA + q
+	! recharger echinus: relis le fichier ~/.echinus/echinusrc
+	Echinus*restart: AS + q = echinus
+	! fermer le client
+	Echinus*killclient: C + w
+	! libère/tile le client
+	Echinus*togglefloating: A + space
+	! échange le client avec le client du master
+	Echinus*zoom: A + Return
+
+	! voir le tag 'n': aller au bureau 'n'
+	Echinus*view0: A + F1
+	Echinus*view1: A + F2
+	Echinus*view2: A + F3
+	Echinus*view3: A + F4
+	Echinus*view4: A + F5
+	Echinus*view5: A + F6
+
+	! tag 'n' le client: déplace le client sur le bureau 'n'
+	Echinus*tag0: AS + 1
+	Echinus*tag1: AS + 2
+	Echinus*tag2: AS + 3
+	Echinus*tag3: AS + 4
+	Echinus*tag4: AS + 5
+	Echinus*tag5: AS + 6
+
+	! ??
+	Echinus*toggletag0: CAS + 1
+	Echinus*toggletag1: CAS + 2
+	Echinus*toggletag2: CAS + 3
+	Echinus*toggletag3: CAS + 4
+	Echinus*toggletag4: CAS + 5
+	Echinus*toggletag5: CAS + 6
+
+	! échange le tag courant avec le tag 'n'
+	Echinus*toggleview0: CA + 1
+	Echinus*toggleview1: CA + 1
+	Echinus*toggleview2: CA + 1
+	Echinus*toggleview3: CA + 1
+	Echinus*toggleview4: CA + 1
+	Echinus*toggleview5: CA + 1
+
+	! échange le tag courant avec le tag 'n' et y affiche le client
+	Echinus*focusview6: A + s
+
+	! definir le layout
+	Echinus*setlayoutm: A + m
+	Echinus*setlayoutf: A + f
+	Echinus*setlayouti: A + i
+	Echinus*setlayoutt: A + r
+	Echinus*setlayoutb: A + w
+
+	! deplacement/redimensionnement des clients selon x,y,w et h
+	! x et y: adresse du coin supérieur gauche du client
+	! w et h: largeur et hauteur du client
+	! deplace le client de 5px vers la droite/gauche/haut/bas
+	Echinus*moveright: A + d = 5
+	Echinus*moveleft: A + a = -5
+	Echinus*moveup: A + w = 0 -5
+	Echinus*movedown: A + s = 0 5
+
+	! reduit le client de 5px
+	Echinus*resizedecx: AS + a = 0 0 -5 0
+	Echinus*resizedecy: AS + s = 0 0 0 -5
+	! agrandit le client de 5px
+	Echinus*resizeincx: AS + d = 0 0 5 0
+	Echinus*resizeincy: AS + w = 0 0 0 5
+
+	! raccourcis clavier(64maxi). format: <ASCW> + <key> 
+	! A:Alt, S:Shift, C:Control, W:Super
+	Echinus*spawn0: A + t = xterm
+	Echinus*spawn1: AS + t = xterm -title root-terminal -e su
+	Echinus*spawn2: C + space = dmenu_run 
+
+	! reduit/augmente la taille du master
+	Echinus*decmwfact: A + h = -0.05
+	Echinus*incmwfact: A + l = +0.05
+	! enlève/ajoute un client dans le master
+	Echinus*decnmaster: AS + j = -1
+	Echinus*incnmaster: AS + k = +1
+
+	! commande exécutée lors d'un clic droit sur le bureau
+	Echinus*command: xterm
+
+	! règles scpéciales
+	! format: Echinus*rule#: <Window class|Window title> <tag> <isfloating> <hastitle>
+	Echinus*rule0: Firefox.* web 0 1
+	Echinus*rule4: Mplayer.* NULL 1 1
+	Echinus*rule5: Gimp.* gfx 1 1

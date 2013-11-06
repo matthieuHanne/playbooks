@@ -27,7 +27,6 @@ set shiftround    " use multiple of shiftwidth when indenting with '<' and '>'
 set smarttab      " insert tabs on the start of a line according to shiftwidth, not tabstop
 
 
-
 "Enable mouse
 set mouse=a
 
@@ -74,12 +73,7 @@ filetype indent plugin on
 set background=dark
 colorscheme solarized
 
-"highlight shite white spaces
-set list
-set listchars=tab:>.,trail:.,extends:#,nbsp:. 
-"autocmd filetype html,xml,html.twig,twig set listchars-=tab:>. "Disable in some filetypes
 
-set visualbell           " don't beep
 set noerrorbells         " don't beep
 
 
