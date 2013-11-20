@@ -1,5 +1,5 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =7
+let g:netrw_dirhist_cnt =8
 let g:netrw_dirhist_1='/Users/mtthhnn/ngniring/epi/src/Lo/EpiBundle'
 let g:netrw_dirhist_2='/Users/mtthhnn/.oh-my-zsh'
 let g:netrw_dirhist_3='/Users/mtthhnn/.oh-my-zsh/lib'
@@ -7,3 +7,4 @@ let g:netrw_dirhist_4='/Users/mtthhnn/dotfiles/.oh-my-zsh'
 let g:netrw_dirhist_5='/Users/mtthhnn/dotfiles/.git'
 let g:netrw_dirhist_6='/home/m2thn/.pki'
 let g:netrw_dirhist_7='/home/m2thn/.pki/nssdb'
+let g:netrw_dirhist_8='/home/m2thn/.echinus'

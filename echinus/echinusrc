@@ -58,15 +58,12 @@ Echinus*button.close.pixmap: close.xbm
 	Echinus*deflayout: t
 
 ! nombre total de tags (bureaux virtuels)
-	Echinus*tags.number: 7
+	Echinus*tags.number: 4
 	! nom des tags
-	Echinus*tags.name0: main
+	Echinus*tags.name0: all
 	Echinus*tags.name1: web
 	Echinus*tags.name2: doc
 	Echinus*tags.name3: dev
-	Echinus*tags.name4: scr
-	Echinus*tags.name5: gfx
-	Echinus*tags.name6: misc
 
 	! layout par défaut des tags
 	Echinus*tags.layout1: m
@@ -89,7 +86,7 @@ Echinus*button.close.pixmap: close.xbm
 	! recharger echinus: relis le fichier ~/.echinus/echinusrc
 	Echinus*restart: AS + q = echinus
 	! fermer le client
-	Echinus*killclient: C + w
+	Echinus*killclient: A + q
 	! libère/tile le client
 	Echinus*togglefloating: A + space
 	! échange le client avec le client du master
@@ -157,7 +154,7 @@ Echinus*button.close.pixmap: close.xbm
 	! A:Alt, S:Shift, C:Control, W:Super
 	Echinus*spawn0: A + t = xterm
 	Echinus*spawn1: AS + t = xterm -title root-terminal -e su
-	Echinus*spawn2: C + space = dmenu_run 
+	Echinus*spawn2: A + p = dmenu_run 
 
 	! reduit/augmente la taille du master
 	Echinus*decmwfact: A + h = -0.05
@@ -167,10 +164,11 @@ Echinus*button.close.pixmap: close.xbm
 	Echinus*incnmaster: AS + k = +1
 
 	! commande exécutée lors d'un clic droit sur le bureau
-	Echinus*command: xterm
+	!Echinus*command: echimenu.sh 
 
 	! règles scpéciales
 	! format: Echinus*rule#: <Window class|Window title> <tag> <isfloating> <hastitle>
 	Echinus*rule0: Firefox.* web 0 1
+	Echinus*rule3: 9menu.* NULL 1 0
 	Echinus*rule4: Mplayer.* NULL 1 1
 	Echinus*rule5: Gimp.* gfx 1 1
