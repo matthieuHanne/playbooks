@@ -1,0 +1,40 @@
+---
+# tasks file for github
+
+- name: Install git 
+  #pacman: name={{item}} state=present update_cache=yes
+  apt: name={{item}} state=present update_cache=yes
+  with_items:
+    - git
+    - git-core
+  tags:
+    - install 
+  when: pull_repo == false 
+    
+
+- name: Install | Add id_rsa for git
+  copy: src=id_rsa dest=/tmp owner=root group=root mode=0600 backup=yes
+  tags:
+    - install 
+
+
+- name: Pull | Pull repo {{repo}} in {{repo_path}}/{{repo}} from b {{branch}}
+  git: repo=git@github.com:{{repo_root}}/{{repo}}.git
+       dest={{repo_path}}/{{repo}}                                     
+       accept_hostkey=yes
+       key_file=/tmp/id_rsa
+       version={{branch}}
+       force=yes
+  tags: pull 
+  when: pull_repo == true
+
+
+- name: Pull | Setting right on repos directories
+  file: dest={{repo_path}} 
+      state=directory 
+      recurse=yes
+      owner=www-data 
+      group=www-data
+      mode="u+rwx,g+wr,o+r"
+  tags: pull
+  when: pull_repo == true

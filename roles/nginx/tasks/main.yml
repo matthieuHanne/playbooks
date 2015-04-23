@@ -1,0 +1,32 @@
+---
+# tasks file for nginx
+
+- name: Install | Install Nginx 
+  apt: name=nginx 
+       state=present 
+       update_cache=yes
+  tags: install
+  when: set_vhost == false
+
+- name: Configure | configure nginx.conf                                                                                          
+  template: src=nginx.conf.j2 
+            dest=/etc/nginx/nginx.conf backup=yes
+  when: set_vhost == false
+
+- name: NGINX | Create vhost {{item.name}}
+  template: src=vhosts.conf.j2 dest=/etc/nginx/sites-available/{{item.name}} backup=yes
+  with_items: apps 
+  when: set_vhost == true
+
+- name: NGINX | Create symlinks {{item.name}}
+  file: src=/etc/nginx/sites-available/{{item.name}} 
+        dest=/etc/nginx/sites-enabled/{{item.name}} 
+        state=link
+  with_items: apps 
+  when: set_vhost == true
+
+- name: Test nginx conf
+  command: nginx -t
+
+- name: Restart nginx
+  command: service nginx restart

@@ -1,0 +1,5 @@
+---
+# defaults file for nginx
+
+apps:
+  - {name: graph_gallery, https: false, port: 80, hostname: "localhost", root: "/home/web/graph_gallery"}

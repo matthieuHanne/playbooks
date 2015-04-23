@@ -1,0 +1,8 @@
+---
+# vars file for github
+
+pull_repo: false
+repo_path: '/home/web'
+repo: 'cv'
+branch: 'master'
+repo_root: 'matthieuHanne'

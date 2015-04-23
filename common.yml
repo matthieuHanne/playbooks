@@ -1,0 +1,25 @@
+#Master playbook for Common tasks
+---
+#dependencies: {role: github} 
+- name: Common playbook  
+  hosts: all 
+  user: vagrant
+  sudo: yes
+  roles:
+    - {role: user}
+    - {role: github, pull_repo: false}
+    - {role: zsh}
+    - {role: vim}
+    - {role: nginx, set_vhost: false}
+    - {role: node}
+  tasks:
+    - name:  Install some basic tools 
+      shell: coffee -co app/ coffee/ chdir=/home/web/graph_gallery
+
+
+#############################################################################
+# Ansible CLI
+# ansible-playbook -i hosts common.yml  -vvvv --check
+
+
+

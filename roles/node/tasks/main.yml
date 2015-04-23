@@ -1,0 +1,41 @@
+---
+# tasks file for node
+
+- name: Install | Install node dependancies 
+  sudo: yes 
+  apt: pkg={{item}} 
+       state=present
+       update_cache=true
+  with_items: 
+    - g++
+    - curl 
+    - libssl-dev 
+    - apache2-utils
+    - wget
+    - nodejs
+    - npm
+  tags: install
+
+- name: Set npm registry
+  command: npm config set registry http://registry.npmjs.org/
+
+- name: Install coffeescripte
+  npm: name=coffee-script global=yes
+
+#- name: Install | Wget node v0.10.29 
+#  command: chdir=/opt wget http://nodejs.org/dist/v0.10.29/node-v0.10.29-linux-x64.tar.gz 
+#  tags: install
+      
+#- name: Install | Extract Node
+#  command: chdir=/opt tar -xvzf  node-v0.10.29-linux-x64.tar.gz
+#  tags: install
+
+#- name: Install | Node Npm update 
+#  command: /opt/node-v0.10.29-linux-x64/bin/npm update 
+#  tags: install
+
+ 
+#- name: Install | Node Npm Install cofee-script 
+#  command: /opt/node-v0.10.29-linux-x64/bin/npm install -g coffee-script 
+#  tags: install
+

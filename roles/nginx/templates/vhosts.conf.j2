@@ -1,0 +1,22 @@
+index   index.html indx.htm;
+
+server {
+  listen       {{item.port}};
+  server_name  {{item.hostname}};
+  root         {{item.root}};
+  
+  access_log /var/log/nginx/{{item.name}}.access;
+  error_log /var/log/nginx/{{item.name}}.error error;
+
+  location / {
+  }
+
+  error_page  404              /404.html;
+  location = /40x.html {
+  }
+
+  error_page   500 502 503 504  /50x.html;
+  location = /50x.html {
+  }
+}
+
