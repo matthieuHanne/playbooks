@@ -2,20 +2,17 @@
 # tasks file for github
 
 - name: Install git 
-  #pacman: name={{item}} state=present update_cache=yes
   apt: name={{item}} state=present update_cache=yes
   with_items:
     - git
     - git-core
-  tags:
-    - install 
+  tags: install 
   when: pull_repo == false 
     
 
 - name: Install | Add id_rsa for git
   copy: src=id_rsa dest=/tmp owner=root group=root mode=0600 backup=yes
-  tags:
-    - install 
+  tags: install 
 
 
 - name: Pull | Pull repo {{repo}} in {{repo_path}}/{{repo}} from b {{branch}}
@@ -24,7 +21,6 @@
        accept_hostkey=yes
        key_file=/tmp/id_rsa
        version={{branch}}
-       force=yes
   tags: pull 
   when: pull_repo == true
 

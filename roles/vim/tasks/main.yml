@@ -1,27 +1,33 @@
 ---
 # tasks file for vim
 - name: Install vim and dependencies  
-  #pacman: name={{item}} state=latest update_cache=yes
   apt: name={{item}} state=latest update_cache=yes
   with_items:
     - vim
     - curl
+  tags: install 
 
 - name: Clone vundle repo
   git: repo=https://github.com/gmarik/Vundle.vim.git dest=/home/{{user}}/.vim/bundle/Vundle.vim
+  tags: configure
 
 - name: Ensure exsistance of conf folder in home directory
   file: path=/home/{{user}}/conf/ state=directory owner={{user}} recurse=yes
+  tags: configure
 
 - name: Ensure exsistance  and writ of .vim folder in home directory
   file: path=/home/{{user}}/.vim state=directory owner={{user}} recurse=yes
+  tags: configure
 
 - name: deploy .vimrc
   template: src=vimrc.j2 dest=/home/{{user}}/conf/vimrc owner={{user}} backup=yes
+  tags: configure
 
 - name: symlink vimrc
   file: path=/home/{{user}}/.vimrc src=/home/{{user}}/conf/vimrc state=link owner={{user}} 
+  tags: configure
 
 - name: install plugins
-  shell: vim +PluginInstall +qall
+  shell: su - {{user}} -c "vim +PluginInstall +qall" 
+  tags: configure
 

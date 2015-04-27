@@ -1,22 +1,27 @@
 ---
 # tasks file for zsh
 - name: Install zsh  
-  #pacman: name={{item}} state=latest update_cache=yes
   apt: name={{item}} state=latest update_cache=yes
   with_items:
     - zsh
+  tags: install 
 
 - name: Clone oh-my-zsh repo
   git: repo=https://github.com/robbyrussell/oh-my-zsh.git dest=/home/{{user}}/.oh-my-zsh
+  tags: configure
 
 - name: Create conf folder in home directory
   file: path=/home/{{user}}/conf/ state=directory owner={{user}}
+  tags: configure
 
 - name: deploy .zshrc
   template: src=zshrc.j2 dest=/home/{{user}}/conf/zshrc owner={{user}} backup=yes
+  tags: configure
 
 - name: symlink zshrc
   file: path=/home/{{user}}/.zshrc src=/home/{{user}}/conf/zshrc state=link owner={{user}}
+  tags: configure
 
 - name: Set zsh as default shell
   user: name={{user}} shell=/bin/zsh
+  tags: configure
