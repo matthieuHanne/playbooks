@@ -27,7 +27,8 @@
   file: path=/home/{{user}}/.vimrc src=/home/{{user}}/conf/vimrc state=link owner={{user}} 
   tags: configure
 
-- name: install plugins
-  shell: su - {{user}} -c "vim +PluginInstall +qall" 
-  tags: configure
+#- name: install plugins
+#  command: vim +PluginInstall +qall  
+#  sudo: no
+#  tags: configure
 

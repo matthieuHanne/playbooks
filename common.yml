@@ -12,9 +12,6 @@
     - {role: vim}
     - {role: nginx, set_vhost: false}
     - {role: node}
-  tasks:
-    - name:  Install some basic tools 
-      shell: coffee -co app/ coffee/ chdir=/home/web/graph_gallery
 
 
 #############################################################################

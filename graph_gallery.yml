@@ -9,10 +9,13 @@
     - {role: github, pull_repo: true, repo: graph_gallery}
     - {role: nginx, set_vhost: true, apps: [{name: "graph_gallery", https: false, port: 80, hostname: "localhost", root: "/home/web/graph_gallery"}]}
   tasks:
-    - name:  Watch coffee dir for changes, and recompile 
+    - name:  Install some basiq tools 
       apt: name={{item}} state=latest update_cache=yes
       with_items:
         - htop
         - ack-grep
         - tree
         - tmux
+
+    - name:  Install some basic tools 
+      shell: coffee -co app/ coffee/ chdir=/home/web/graph_gallery

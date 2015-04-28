@@ -19,8 +19,8 @@
   git: repo=git@github.com:{{repo_root}}/{{repo}}.git
        dest={{repo_path}}/{{repo}}                                     
        accept_hostkey=yes
-       key_file=/tmp/id_rsa
        version={{branch}}
+       key_file=/tmp/id_rsa
   tags: pull 
   when: pull_repo == true
 
@@ -31,6 +31,6 @@
       recurse=yes
       owner=www-data 
       group=www-data
-      mode="u+rwx,g+wr,o+r"
+      mode=644
   tags: pull
   when: pull_repo == true
