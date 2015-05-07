@@ -9,18 +9,11 @@
   tags: install 
   when: pull_repo == false 
     
-
-- name: Install | Add id_rsa for git
-  copy: src=id_rsa dest=/tmp owner=root group=root mode=0600 backup=yes
-  tags: install 
-
-
 - name: Pull | Pull repo {{repo}} in {{repo_path}}/{{repo}} from b {{branch}}
   git: repo=git@github.com:{{repo_root}}/{{repo}}.git
        dest={{repo_path}}/{{repo}}                                     
        accept_hostkey=yes
        version={{branch}}
-       key_file=/tmp/id_rsa
   tags: pull 
   when: pull_repo == true
 

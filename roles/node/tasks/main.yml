@@ -1,6 +1,9 @@
 ---
 # tasks file for node
 
+- name: Update nodesource 
+  shell: curl -sL https://deb.nodesource.com/setup | sudo bash -
+
 - name: Install | Install node dependancies 
   sudo: yes 
   apt: pkg={{item}} 
@@ -13,7 +16,6 @@
     - apache2-utils
     - wget
     - nodejs
-    - npm
   tags: install
 
 - name: Set npm registry

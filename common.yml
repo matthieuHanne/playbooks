@@ -3,15 +3,15 @@
 #dependencies: {role: github} 
 - name: Common playbook  
   hosts: all 
-  user: vagrant
+  user: vagrant 
   sudo: yes
   roles:
-    - {role: user}
-    - {role: github, pull_repo: false}
-    - {role: zsh}
-    - {role: vim}
-    - {role: nginx, set_vhost: false}
-    - {role: node}
+    - {role: user }
+    - {role: github, pull_repo: false }
+    - {role: zsh }
+    - {role: vim }
+    - {role: nginx, set_vhost: false }
+    - {role: node }
 
 
 #############################################################################

@@ -7,6 +7,15 @@
   tags: configure
 
 - name: Create user     
-  user: name={{user}} generate_ssh_key=yes ssh_key_bits=2048 ssh_key_file=.ssh/id_rsa groups=www-data append=yes
+  user: name={{user}} groups=www-data append=yes
   tags: configure
+
+- name: ensure .ssh dir exist
+  file: path=/home/{{ user }}/.ssh state=directory
+- name: Copy dotfiles
+  copy: src=~/{{ item }} dest=/home/{{ user }}/{{ item }}
+  with_items:
+    - .gitconfig
+    - .ssh/id_rsa
+    - .ssh/id_rsa.pub
 
